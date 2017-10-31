@@ -13,16 +13,6 @@ def create_app(**config_overrides):
     return app
 
 
-# def make_public_task(task):
-#     new_task = {}
-#     for field in task:
-#         if field == 'id':
-#             new_task['uri'] = url_for('get_task', task_id=task['id'], _external=True)
-#         else:
-#             new_task[field] = task[field]
-#     return new_task
-
-
 def create_public_dog(dog):
     new_dog = {}
     for key, value in dog.items():
