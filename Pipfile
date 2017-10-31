@@ -9,8 +9,8 @@ name = "pypi"
 
 flask = "*"
 pytest = "*"
-pymongo = "*"
 requests = "*"
+flask-pymongo = "*"
 
 
 [dev-packages]

@@ -1,7 +1,7 @@
 {
     "_meta": {
         "hash": {
-            "sha256": "ecaa815a3ec7fbb859cf26fccc6637aa9c9979435380375e3012dc09d7adfe8d"
+            "sha256": "96d0589f43b8a7b467b585b704f8075f2bbbe6fc433e84e485167366cdbdbbbf"
         },
         "host-environment-markers": {
             "implementation_name": "cpython",
@@ -56,6 +56,14 @@
                 "sha256:49f44461237b69ecd901cc7ce66feea0319b9158743dd27a2899962ab214dac1"
             ],
             "version": "==0.12.2"
+        },
+        "flask-pymongo": {
+            "hashes": [
+                "sha256:0d3cb35f874e17cc0f08066936e2f96a7a65e65af00609211b3e7518bf499813",
+                "sha256:e81c2001be555e255b3ac7776f0f2f5921f6aeef9fc94edb47c1fca2b532e59c",
+                "sha256:2baaa2ba5107d72b3a8bd4b5c0c8881316e35340ad1ae979cc13f1f3c8843b3d"
+            ],
+            "version": "==0.5.1"
         },
         "idna": {
             "hashes": [
