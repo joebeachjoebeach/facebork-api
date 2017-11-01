@@ -22,5 +22,5 @@ def temp_db():
 def temp_app():
     """Sets up and returns a flask test client app."""
     test_app = create_test_app()
-    test_app.register_blueprint(bp)
+    # test_app.register_blueprint(bp)
     return test_app.test_client()

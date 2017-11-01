@@ -10,6 +10,7 @@ def create_app(**config_overrides):
     app.config.from_object('config')
     app.config.update(config_overrides)
     mongo.init_app(app)
+    app.register_blueprint(bp)
     return app
 
 
@@ -109,5 +110,5 @@ def update_dog(dog):
 
 if __name__ == '__main__':
     app = create_app()
-    app.register_blueprint(bp)
-    app.run()
+    # app.register_blueprint(bp)
+    app.run(port=8000)
