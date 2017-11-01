@@ -14,3 +14,12 @@ def format_key(key):
 
 def format_dog(dict):
     return {format_key(k): format_value(k, v) for k, v in dict.items()}
+
+
+def create_public_dog(dog):
+    new_dog = {}
+    for key, value in dog.items():
+        if key != '_id':
+            new_dog[key] = value
+    return new_dog
+    

@@ -1,7 +1,7 @@
 from flask import Flask, jsonify, make_response, request, Blueprint, url_for
 from flask_pymongo import PyMongo
 import json
-from utils import format_dog
+from utils import format_dog, create_public_dog
 
 mongo = PyMongo()
 
@@ -14,25 +14,13 @@ def create_app(**config_overrides):
     return app
 
 
-def create_public_dog(dog):
-    new_dog = {}
-    for key, value in dog.items():
-        if key == '_id':
-            new_dog['uri'] = url_for('bp.get_dog', dog=value, _external=True)
-        elif key == 'friends':
-            new_dog[key] = [url_for('bp.get_dog', dog=friend, _external=True) for friend in value]
-        else:
-            new_dog[key] = value
-    return new_dog
-
-
 bp = Blueprint('bp', __name__)
 
 @bp.route('/api/dogs/', methods=['GET'])
 @bp.route('/api/dogs', methods=['GET'])
 def get_all_dogs():
     """Returns a list of all the dogs in the collection."""
-    return jsonify([dog for dog in mongo.db.dogs.find()])
+    return jsonify([create_public_dog(dog) for dog in mongo.db.dogs.find()])
 
 
 @bp.route('/api/dogs/', methods=['POST'])
