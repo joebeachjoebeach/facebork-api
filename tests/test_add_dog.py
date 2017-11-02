@@ -11,7 +11,7 @@ def test_add_dog(temp_app, temp_db):
     res_data = json.loads(res.data)
     assert res.status_code == 201, 'The response should have a status code of 201 - CREATED.'
     assert isinstance(res_data, dict), 'The data should be a json dict.'
-    assert '_id' in res_data, 'The response should have a new _id key.'
+    assert '_id' not in res_data, 'The response shouldn not have an _id key.'
 
     dogs = temp_db
     dog_in_db = dogs.find_one({'_id': 'leelou'})
@@ -27,7 +27,7 @@ def test_add_unformatted_dog(temp_app, temp_db):
     res_data = json.loads(res.data)
     assert res.status_code == 201, 'The response should have a status code of 201 - CREATED.'
     assert isinstance(res_data, dict), 'The data should be a json dict.'
-    assert '_id' in res_data, 'The response should have a new _id key.'
+    assert '_id' not in res_data, 'The response shouldn not have an _id key.'
 
     dogs = temp_db
     dog_in_db = dogs.find_one({'_id': 'leelou'})

@@ -14,8 +14,7 @@ def test_update_dog(temp_app, temp_db):
     res_data = json.loads(res.data)
     assert res.status_code == 200, 'The response code should be 200 -- OK.'
     assert isinstance(res_data, dict), 'The response data should be a json dictionary.'
-    assert all (key in res_data for key in ('_id', 'owners')), \
-        'The response should have _id and owners keys now.'
+    assert 'owners' in res_data, 'The response should have an owners key now.'
     assert res_data['weight'] == 95
 
     dogs = temp_db

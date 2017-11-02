@@ -41,7 +41,7 @@ def add_dog():
     
     dog['_id'] = dog['name']
     mongo.db.dogs.insert_one(dog)
-    return jsonify(dog), 201
+    return jsonify(create_public_dog(dog)), 201
     
     
 @bp.route('/api/dogs/<string:dog>/', methods=['GET'])
@@ -91,7 +91,7 @@ def update_dog(dog):
             dog_updates['friends'] = new_friends
 
         mongo.db.dogs.update_one({'_id': dog}, {'$set': dog_updates})
-        return jsonify(mongo.db.dogs.find_one({'_id': dog}))
+        return jsonify(create_public_dog(mongo.db.dogs.find_one({'_id': dog})))
 
     return make_response(jsonify({'error': 'Resource not found on server.'}), 404)
     
