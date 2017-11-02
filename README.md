@@ -5,6 +5,8 @@ Finally, just what you've been looking for: a dog-social-network API.
 
 ### Usage
 
+You can try out the API with the following base URL: `http://ec2-13-58-66-134.us-east-2.compute.amazonaws.com/`
+
 **Get all dogs in the network**:
 
 GET: `/api/dogs/`
@@ -12,6 +14,34 @@ GET: `/api/dogs/`
 **Get a specific dog**:
 
 GET: `/api/dogs/:name/`
+
+Example: `/api/dogs/kevin/`
+```json
+{
+    "breed": [
+        "pitbull",
+        "poodle",
+        "husky",
+        "boston terrier"
+    ],
+    "colors": [
+        "black",
+        "white",
+        "brown"
+    ],
+    "friends": [
+        "rover",
+        "fido",
+        "madge"
+    ],
+    "name": "kevin",
+    "owners": [
+        "george",
+        "francis"
+    ],
+    "weight": 70
+}
+```
 
 **Add a dog**
 
