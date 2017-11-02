@@ -3,7 +3,8 @@ from dummy_data import (normie_update,
                         normie_update_color,
                         normie_update_breed,
                         normie_update_name,
-                        normie_update_id)
+                        normie_update_id,
+                        fido_update)
 from fixtures import temp_app, temp_db
 
 def test_update_dog(temp_app, temp_db):
@@ -22,6 +23,17 @@ def test_update_dog(temp_app, temp_db):
     assert 'owners' in normie_in_db, 'The document should have a new owners key.'
     assert normie_in_db['weight'] == 95, 'The weight should now be 95.'
     assert 'brownie' in normie_in_db['friends'], 'Brownie should now be in the friends list.'
+
+
+def test_update_dog_no_prior_friends(temp_app, temp_db):
+    """Tests adding friends to a dog who didn't have friends before."""
+    res = temp_app.put('/api/dogs/fido',
+                        data=json.dumps(fido_update),
+                        content_type='application/json')
+    res_data = json.loads(res.data)
+    assert res.status_code == 200, 'The response code should be 200 -- OK.'
+    assert isinstance(res_data, dict), 'The response data should be a json dictionary.'
+    assert 'friends' in res_data, 'The response should have a friends key now.'
 
 
 def test_update_bad_color(temp_app, temp_db):

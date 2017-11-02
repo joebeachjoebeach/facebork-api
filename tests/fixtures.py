@@ -1,7 +1,7 @@
 import pymongo
 from pytest import fixture
 from app import create_app, bp
-from dummy_data import normie
+from dummy_data import normie, fido
 
 def create_test_app():
     return create_app(TESTING=True, DEBUG=False, MONGO_DBNAME='faceborktest')
@@ -14,6 +14,7 @@ def temp_db():
     db = client.faceborktest
     col = db.dogs
     col.insert_one(normie)
+    col.insert_one(fido)
     yield col
     col.delete_many({})
 

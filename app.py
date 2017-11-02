@@ -86,7 +86,7 @@ def update_dog(dog):
         if 'breed' in dog_updates and 'breed' in dog_in_db:
             return make_response(jsonify({'error': 'Cannot change breed of dog.'}), 400)
 
-        if 'friends' in dog_updates:
+        if 'friends' in dog_updates and 'friends' in dog_in_db:
             new_friends = list(set(dog_updates['friends'] + dog_in_db['friends']))
             dog_updates['friends'] = new_friends
 

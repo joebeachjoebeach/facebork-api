@@ -7,6 +7,14 @@ normie = {
     'friends': ['joel', 'ellie', 'zelda', 'ida', 'jelly roll', 'leelou', 'woody']
 }
 
+fido = {
+    '_id': 'fido',
+    'name': 'fido'
+}
+
+fido_update = {
+    'friends': ['normie', 'leelou']
+}
 
 leelou = {
     'name': 'leelou',
