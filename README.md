@@ -2,11 +2,6 @@
 
 Finally, just what you've been looking for: a dog-social-network API.
 
-
-### Usage
-
-You can try out the API with the following base URL: `http://ec2-13-58-66-134.us-east-2.compute.amazonaws.com/`
-
 **Get all dogs in the network**:
 
 GET: `/api/dogs/`
